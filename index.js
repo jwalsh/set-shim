@@ -23,8 +23,6 @@ Array.prototype.unique = function() {
   return arr;
 };
 
-
-
 Set.prototype.isSuperset = function(subset) {
   for (var elem of subset) {
     if (!this.has(elem)) {
@@ -33,7 +31,6 @@ Set.prototype.isSuperset = function(subset) {
   }
   return true;
 };
-
 
 Set.prototype.union = function(setB) {
   var union = new Set(this);
