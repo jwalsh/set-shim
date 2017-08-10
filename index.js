@@ -5,53 +5,58 @@ console.log('MDN Implementation: Set');
 
 // https://stackoverflow.com/questions/11246758/how-to-get-unique-values-in-an-array
 Array.prototype.contains = function(v) {
-    for(var i = 0; i < this.length; i++) {
-        if(this[i] === v) return true;
+  for (var i = 0; i < this.length; i++) {
+    if (this[i] === v) {
+      return true;
     }
-    return false;
+  }
+  return false;
 };
 
 Array.prototype.unique = function() {
-    var arr = [];
-    for(var i = 0; i < this.length; i++) {
-        if(!arr.contains(this[i])) {
-            arr.push(this[i]);
-        }
+  var arr = [];
+  for (var i = 0; i < this.length; i++) {
+    if (!arr.contains(this[i])) {
+      arr.push(this[i]);
     }
-    return arr;
+  }
+  return arr;
 };
 
+
+
 Set.prototype.isSuperset = function(subset) {
-    for (var elem of subset) {
-        if (!this.has(elem)) {
-            return false;
-        }
+  for (var elem of subset) {
+    if (!this.has(elem)) {
+      return false;
     }
-    return true;
-}
+  }
+  return true;
+};
+
 
 Set.prototype.union = function(setB) {
-    var union = new Set(this);
-    for (var elem of setB) {
-        union.add(elem);
-    }
-    return union;
-}
+  var union = new Set(this);
+  for (var elem of setB) {
+    union.add(elem);
+  }
+  return union;
+};
 
 Set.prototype.intersection = function(setB) {
-    var intersection = new Set();
-    for (var elem of setB) {
-        if (this.has(elem)) {
-            intersection.add(elem);
-        }
+  var intersection = new Set();
+  for (var elem of setB) {
+    if (this.has(elem)) {
+      intersection.add(elem);
     }
-    return intersection;
-}
+  }
+  return intersection;
+};
 
 Set.prototype.difference = function(setB) {
-    var difference = new Set(this);
-    for (var elem of setB) {
-        difference.delete(elem);
-    }
-    return difference;
-}
+  var difference = new Set(this);
+  for (var elem of setB) {
+    difference.delete(elem);
+  }
+  return difference;
+};
